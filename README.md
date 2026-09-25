@@ -19,7 +19,7 @@ This project manages books, borrowing transactions, inventory updates, and borro
 - 🔗 Use MongoDB `ObjectId` references between collections
 - 🧮 Use MongoDB aggregation operators such as `$group`, `$sum`, `$lookup`, `$unwind`, and `$project`
 - ✅ Request validation with Mongoose
-- 🕒 Manual `createdAt` and `updatedAt` timestamps
+- 🕒 Manual `createdAt` and `updatedAt` timestamp`
 
 ---
 
@@ -159,7 +159,7 @@ npm --version
 Clone the repository:
 
 ```bash
-git clone <your-repository-url>
+git clone <https://github.com/ebscode/L-management>
 ```
 
 Move into the project directory:
