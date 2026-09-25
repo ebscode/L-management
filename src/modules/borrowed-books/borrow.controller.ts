@@ -20,6 +20,26 @@ res.status(200).json({
 
 }
 
+
+const borrowedBookSummary=async(req:Request,res:Response)=>{
+  try{
+    const result=await BorrowService.borrowedBookSummary()
+  res.status(200).json({
+    success:true,
+    message:"borrowed book summary retrieved successfully",
+    data:result
+  })
+  }
+  catch(err:any){
+    res.status(500).json({
+      success:false,
+      message:"book summatu could not retrived",
+      error:err
+    })
+  }
+}
+
 export const BorrowController={
-  borrowedBook
+  borrowedBook,
+  borrowedBookSummary
 }

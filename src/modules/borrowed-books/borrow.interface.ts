@@ -1,5 +1,7 @@
+import type { Types } from "mongoose";
+
 export type TborrowedBook = {
- book:string;
+ book:Types.ObjectId;
  quantity:number;
  dueDate:Date;
  createdAt:Date;

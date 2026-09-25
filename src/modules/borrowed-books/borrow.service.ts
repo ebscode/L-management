@@ -25,6 +25,50 @@ const borrowedBook = async (payload:TborrowedBook) => {
   }
 };
 
+
+const borrowedBookSummary=async()=>{
+ const result=await BorrowedBook.aggregate([
+
+{$group:{
+    _id:"$book",
+    totalQuantity:{$sum:"$quantity"}
+  }},
+  
+{$lookup:{
+  from:"books",
+  localField:"_id",
+  foreignField:"_id",
+  as:"bookinfo"
+
+
+}},
+{$unwind:"$bookinfo"},
+{
+  $project:{
+    _id:0,
+    
+    book:{
+      title:"$bookinfo.title",
+      isbn:"$bookinfo.isbn"
+    },
+    totalQuantity:1,
+    
+  }
+}
+
+
+
+
+
+
+
+
+  // 
+ ])
+ return result
+}
+
 export const BorrowService = {
   borrowedBook,
+  borrowedBookSummary
 };
